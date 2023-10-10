@@ -74,8 +74,7 @@ fun SettingsScreen(
         modifier = Modifier.height(100.dp).width(100.dp)
       )
 
-
-
+      ChangeCard { viewModel.onChangeInfoClick(openScreen) }
       SignOutCard { viewModel.onSignOutClick(restartApp) }
       DeleteMyAccountCard { viewModel.onDeleteMyAccountClick(restartApp) }
     }
@@ -105,6 +104,16 @@ private fun SignOutCard(signOut: () -> Unit) {
       onDismissRequest = { showWarningDialog = false }
     )
   }
+}
+
+@ExperimentalMaterialApi
+@Composable
+private fun ChangeCard(changeInfo: () -> Unit) {
+
+  RegularCardEditor(AppText.change, AppIcon.baseline_edit_24, "", Modifier.card()) {
+    changeInfo()
+  }
+
 }
 
 @ExperimentalMaterialApi

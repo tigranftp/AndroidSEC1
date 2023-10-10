@@ -16,6 +16,7 @@ limitations under the License.
 
 package com.example.makeitso.screens.settings
 
+import com.example.makeitso.CHANGE_INFO_SCREEN
 import com.example.makeitso.LOGIN_SCREEN
 import com.example.makeitso.SIGN_UP_SCREEN
 import com.example.makeitso.SPLASH_SCREEN
@@ -45,6 +46,9 @@ class SettingsViewModel @Inject constructor(
       restartApp(SPLASH_SCREEN)
     }
   }
+
+
+  fun onChangeInfoClick(openScreen: (String) -> Unit) = openScreen(CHANGE_INFO_SCREEN)
 
   fun onDeleteMyAccountClick(restartApp: (String) -> Unit) {
     launchCatching {
