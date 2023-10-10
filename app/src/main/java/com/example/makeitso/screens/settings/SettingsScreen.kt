@@ -24,7 +24,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
 import com.example.makeitso.R.drawable as AppIcon
 import com.example.makeitso.R.string as AppText
 import com.example.makeitso.common.composable.*
@@ -64,6 +66,16 @@ fun SettingsScreen(
       }
 
     } else {
+
+
+      AsyncImage(
+        model = "https://sun9-33.userapi.com/impg/issLoC_0Cl7zr0LoruRhL-tSC793kI_BLDtx5g/1hMCK-6dVHY.jpg?size=557x939&quality=95&sign=9218d9726fdcf7586396ad0056e842a4&type=album",
+        contentDescription = "Main Image Of User",
+        modifier = Modifier.height(100.dp).width(100.dp)
+      )
+
+
+
       SignOutCard { viewModel.onSignOutClick(restartApp) }
       DeleteMyAccountCard { viewModel.onDeleteMyAccountClick(restartApp) }
     }
