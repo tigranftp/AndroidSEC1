@@ -7,6 +7,7 @@ import com.example.makeitso.R
 import com.example.makeitso.SETTINGS_SCREEN
 import com.example.makeitso.SIGN_UP_SCREEN
 import com.example.makeitso.SPLASH_SCREEN
+import com.example.makeitso.TASKS_SCREEN
 import com.example.makeitso.common.ext.isValidEmail
 import com.example.makeitso.common.ext.isValidPassword
 import com.example.makeitso.common.ext.passwordMatches
@@ -47,6 +48,6 @@ class ChangeInfoViewModel @Inject constructor(
     fun onSaveClick(openAndPopUp: (String, String) -> Unit) {
         accountService.setProfilePicture(uiState.value.profilePicURL)
         accountService.setProfileDisplayName(uiState.value.userName)
-        openAndPopUp(SETTINGS_SCREEN, CHANGE_INFO_SCREEN)
+        openAndPopUp(TASKS_SCREEN, CHANGE_INFO_SCREEN)
     }
 }
