@@ -69,7 +69,7 @@ fun ChangeInfo(
         AvatarField(uiState.profilePicURL, viewModel::onProfilePicURLChange, fieldModifier)
 
         BasicButton(R.string.save_info, Modifier.basicButton()) {
-            viewModel.onSignUpClick(openAndPopUp)
+            viewModel.onSaveClick(openAndPopUp)
         }
     }
 }

@@ -52,4 +52,6 @@ fun SignUpScreen(
       viewModel.onSignUpClick(openAndPopUp)
     }
   }
+
+
 }

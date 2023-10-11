@@ -44,8 +44,9 @@ class ChangeInfoViewModel @Inject constructor(
     }
 
 
-    fun onSignUpClick(openAndPopUp: (String, String) -> Unit) {
+    fun onSaveClick(openAndPopUp: (String, String) -> Unit) {
         accountService.setProfilePicture(uiState.value.profilePicURL)
         accountService.setProfileDisplayName(uiState.value.userName)
+        openAndPopUp(SETTINGS_SCREEN, CHANGE_INFO_SCREEN)
     }
 }
