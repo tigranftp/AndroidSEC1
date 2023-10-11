@@ -35,6 +35,8 @@ class SettingsViewModel @Inject constructor(
   private val storageService: StorageService
 ) : MakeItSoViewModel(logService) {
   val uiState = accountService.currentUser.map { SettingsUiState(it.isAnonymous) }
+  val imageSRC = accountService.getProfilePicture()
+  val displayName = accountService.getProfileDisplayName()
 
   fun onLoginClick(openScreen: (String) -> Unit) = openScreen(LOGIN_SCREEN)
 

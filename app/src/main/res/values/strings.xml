@@ -2,6 +2,9 @@
     <!-- Common -->
     <string name="app_name">Make It So</string>
     <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="auth">Auth</string>
+    <string name="ava">Avatar</string>
     <string name="password">Password</string>
     <string name="repeat_password">Repeat password</string>
     <string name="generic_error">Something wrong happened. Please try again.</string>
@@ -22,6 +25,10 @@
     <string name="create_account">Create account</string>
     <string name="password_error">Your password should have at least six digits and include one digit, one lower case letter and one upper case letter.</string>
     <string name="password_match_error">Passwords do not match.</string>
+
+    <!-- ChangeInfoScreen -->
+    <string name="change_info">Change profile info</string>
+    <string name="save_info">Save</string>
 
     <!-- TasksScreen -->
     <string name="tasks">Tasks</string>

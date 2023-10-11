@@ -30,5 +30,9 @@ interface AccountService {
   suspend fun createAnonymousAccount()
   suspend fun linkAccount(email: String, password: String)
   suspend fun deleteAccount()
+  fun getProfilePicture(): String
+  fun getProfileDisplayName(): String
+  fun setProfilePicture(picURL: String)
+  fun setProfileDisplayName(dispName: String)
   suspend fun signOut()
 }

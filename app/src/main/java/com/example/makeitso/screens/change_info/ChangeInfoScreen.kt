@@ -21,6 +21,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,16 +31,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.makeitso.R
+import com.example.makeitso.common.composable.AvatarField
 import com.example.makeitso.common.composable.BasicButton
 import com.example.makeitso.common.composable.BasicToolbar
 import com.example.makeitso.common.composable.DropdownContextMenu
 import com.example.makeitso.common.composable.EmailField
+import com.example.makeitso.common.composable.NameField
 import com.example.makeitso.common.composable.PasswordField
 import com.example.makeitso.common.composable.RepeatPasswordField
 import com.example.makeitso.common.ext.basicButton
 import com.example.makeitso.common.ext.contextMenu
 import com.example.makeitso.common.ext.fieldModifier
 import com.example.makeitso.model.Task
+import com.example.makeitso.screens.settings.SettingsUiState
 import com.example.makeitso.screens.sign_up.SignUpViewModel
 import com.example.makeitso.theme.DarkOrange
 
@@ -49,31 +53,22 @@ import com.example.makeitso.theme.DarkOrange
 fun ChangeInfo(
     openAndPopUp: (String, String) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: SignUpViewModel = hiltViewModel()
+    viewModel: ChangeInfoViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState
     val fieldModifier = Modifier.fieldModifier()
 
-    BasicToolbar(R.string.create_account)
+    BasicToolbar(R.string.change_info)
 
     Column(
         modifier = modifier.fillMaxWidth().fillMaxHeight().verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        OutlinedTextField(
-            singleLine = true,
-            modifier = modifier,
-            value = "",
-            onValueChange = {  },
-            placeholder = { "Name" },
-            leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "Email") }
-        )
-        EmailField("AAAAAAAAAAAAAAA", viewModel::onEmailChange, fieldModifier)
-        PasswordField(uiState.password, viewModel::onPasswordChange, fieldModifier)
-        RepeatPasswordField(uiState.repeatPassword, viewModel::onRepeatPasswordChange, fieldModifier)
+        NameField(uiState.userName, viewModel::onDisplayNameChange, fieldModifier)
+        AvatarField(uiState.profilePicURL, viewModel::onProfilePicURLChange, fieldModifier)
 
-        BasicButton(R.string.create_account, Modifier.basicButton()) {
+        BasicButton(R.string.save_info, Modifier.basicButton()) {
             viewModel.onSignUpClick(openAndPopUp)
         }
     }

@@ -16,4 +16,5 @@ limitations under the License.
 
 package com.example.makeitso.screens.settings
 
-data class SettingsUiState(val isAnonymousAccount: Boolean = true)
+data class SettingsUiState(val isAnonymousAccount: Boolean = true,
+                           val imageSRC: String = "")
